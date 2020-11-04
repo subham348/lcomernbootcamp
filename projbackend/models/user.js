@@ -44,7 +44,9 @@ import { v1 as uuidv1 } from 'uuid';
         type: Array,
         default: []
     }
-  });
+  },
+  {timestamps: true}
+  );
 
   userSchema.virtual("password")
     .set(function(password) {
