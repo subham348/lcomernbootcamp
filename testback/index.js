@@ -9,12 +9,28 @@ app.get("/", (req, res) => {
     return res.send("hello there");
 });
 
+const admin = (req, res) => {
+    return res.send("this is admin dashboard");
+};
+
+const isAdmin = (req, res, next) => {
+    console.log("isAdmin is running");
+    next();
+};
+
+const isLoggedIn = (req, res, next) => {
+    console.log("loggedIn in admin");
+    next();
+};
+
+app.get("/admin", isAdmin, isLoggedIn, admin);
+
 app.get("/logout", (req, res) => {
     return res.send("You are logged out from route");
 });
 
 app.get("/hitesh", (req, res) => {
-    return res.send("Hitesh uses Instagram");
+    return res.send("Subham uses Instagram");
 });
 
 app.get("/login", (req, res) => {
