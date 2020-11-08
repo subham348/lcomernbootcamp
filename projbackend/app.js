@@ -39,7 +39,7 @@ app.use("/api", authRoutes);
 
 
 //Port
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 
 //Starting a server
 app.listen(port, () => {
