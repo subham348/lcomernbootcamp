@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+const { check, validationResult } = require('express-validator');
+
 const {signout, signup} = require("../controllers/auth");
 
 
@@ -16,7 +18,13 @@ const {signout, signup} = require("../controllers/auth");
 //     res.send("user signout success");
 // };
 
-router.post("/signup", signup);
+router.post("/signup", [
+    check("name").isLength({ min: 3 }).withMessage("name should be at least 3 char"),
+    //same as above, can also be written like below.
+  //check("name", "name should be at least 3 char").isLength({ min: 3 }),
+    check("email").isEmail().withMessage("email is required"),
+    check("password").isLength({ min: 3 }).withMessage('password should be at least 3 char')
+], signup);
 
 router.get("/signout", signout);
 
