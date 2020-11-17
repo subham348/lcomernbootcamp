@@ -29,10 +29,6 @@ app.get("/logout", (req, res) => {
     return res.send("You are logged out from route");
 });
 
-app.get("/hitesh", (req, res) => {
-    return res.send("Subham uses Instagram");
-});
-
 app.get("/login", (req, res) => {
     return res.send("You are visiting login route");
 });
