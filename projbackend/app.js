@@ -13,7 +13,9 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 
+//my routes
 const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/user");
 
 
 //DB Connection
@@ -35,6 +37,7 @@ app.use(cors());
 
 //My Routes
 app.use("/api", authRoutes);
+app.use("/api", userRoutes);
 
 
 
